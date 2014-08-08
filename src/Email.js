@@ -2,7 +2,8 @@ function ParseTextToEmail(input) {
 
 		function replaceAtwithArruba(input) {
 		  if (input.indexOf("AT") > 0) {
-		    return input.replace("AT","@");
+		  	var text = removeSymbols(input);
+		    return text.replace("AT","@");
 		  }
 		  else {
 				return input;
@@ -16,12 +17,19 @@ function ParseTextToEmail(input) {
 		  else {
 				return input;
 		  }
+
 		}
-    // var x = replaceAtwithArruba(input);
-    // var y = replaceDot(x);
-    // return y;
+
+    	function removeSymbols (input) {
+    		var newtext =[];
+    		for (var i = 0; i < input.length; i++) {
+    			newtext.push(input[i].replace(/\W/, ""));
+    		};
+    		return newtext.join("");
+    	}
 
 	var atreplaced = replaceAtwithArruba(input);
 	return replaceDot(atreplaced);
 
 };
+

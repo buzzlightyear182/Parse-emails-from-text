@@ -1,7 +1,3 @@
-// EXAMPLE
-// fatcat@gmail => fatcat
-
-
 describe("ParseTextToEmail", function(){
 
   it("returns a string when string is input", function(){
@@ -21,6 +17,14 @@ describe("ParseTextToEmail", function(){
 
   it("given DOT, convert to .", function(){
     var result = ParseTextToEmail("fatcatATgmailDOTcom");
+    expect(result).toEqual("fatcat@gmail.com");
+  });
+
+  it("given (AT) remove the parenthesis and convert to @", function(){
+    var result = ParseTextToEmail("fatcat(AT)gmailDOTcom");
+    expect(result).toEqual("fatcat@gmail.com");
+
+    var second = ParseTextToEmail("fatcat-AT%gmail-DOT-com");
     expect(result).toEqual("fatcat@gmail.com");
   });
 
