@@ -10,6 +10,7 @@
   <script type="text/javascript" src="lib/jasmine-2.0.1/jasmine.js"></script>
   <script type="text/javascript" src="lib/jasmine-2.0.1/jasmine-html.js"></script>
   <script type="text/javascript" src="lib/jasmine-2.0.1/boot.js"></script>
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 
   <!-- include source files here... -->
   <script type="text/javascript" src="src/Email.js"></script>
@@ -20,7 +21,50 @@
 
 </head>
 
+<style type="text/css">
+body {
+	font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
+	background-color: black;
+	color: white;
+}
+
+#normalize{
+	background-color: #27ae60;
+	padding: 10px;
+	border-radius: 10px;
+	border: 0px;
+	color: white;
+}
+
+#result {
+	color: white;
+	background-color: #e74c3c;
+	padding: 10px;
+}
+</style>
+
 <body>
-  Hello we are doing TDD! -Roger and Jane :)
+  <p>Type in your text:</p>
+  <textarea id="textbox"></textarea>
+  <button id="normalize">Normalize</button></br>
+  <p>Here's the result:</p>
+  <div id="result"></div>
+</br>
+
+<script>
+	var inputBox = $('#textbox');
+	var result = $('#result');
+
+	$('#normalize').click(function(event) {
+		event.preventDefault();
+
+		var input = inputBox.val();
+
+	  var result = NormalizeEmail(input);
+	  console.log(result);
+	  $('#result').text(result);
+	});
+</script>
+
 </body>
 </html>

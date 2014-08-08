@@ -15,11 +15,6 @@ describe("The emails normalizer", function(){
     expect(result).toEqual("fatcat@gmail.com");
   });
 
-  // it("given DOT, convert to .", function(){
-  //   var result = NormalizeEmail("fatcatATgmailDOTcom");
-  //   expect(result).toEqual("fatcat@gmail.com");
-  // });
-
   describe("given a text with uppercase AT and/or DOT", function(){
     it("removes the symbols and convert", function(){
       var result = NormalizeEmail("fatcat(AT)gmailDOTcom");
