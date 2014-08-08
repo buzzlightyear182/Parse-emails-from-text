@@ -25,4 +25,16 @@ describe("The emails normalizer", function(){
     });
   });
 
-});
+  describe('Email normalizer interface',function(){
+
+    it ('Should return a correct email',function(){
+      $('#textbox').val("hello Jane");
+
+      $("#normalize").click();
+
+      var result = $("#result").html();
+
+      expect(result).toEqual('hello Jane');
+    });
+  })
+})
