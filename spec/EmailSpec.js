@@ -1,31 +1,33 @@
-describe("ParseTextToEmail", function(){
+describe("The emails normalizer", function(){
 
-  it("returns a string when string is input", function(){
-      var result = ParseTextToEmail("fatcat");
+  it("returns the same word when a word is input", function(){
+      var result = NormalizeEmail("fatcat");
       expect(result).toEqual("fatcat");
   });
 
-  it("returns an email when an actual email is entered", function(){
-    var result = ParseTextToEmail("fatcat@gmail.com");
+  it("returns an email when a real email is entered", function(){
+    var result = NormalizeEmail("fatcat@gmail.com");
     expect(result).toEqual("fatcat@gmail.com");
   });
 
-  it("given AT, convert to @", function(){
-    var result = ParseTextToEmail("fatcatATgmailDOTcom");
+  it("given uppercase letters, convert to a symbol", function(){
+    var result = NormalizeEmail("fatcatATgmailDOTcom");
     expect(result).toEqual("fatcat@gmail.com");
   });
 
-  it("given DOT, convert to .", function(){
-    var result = ParseTextToEmail("fatcatATgmailDOTcom");
-    expect(result).toEqual("fatcat@gmail.com");
-  });
+  // it("given DOT, convert to .", function(){
+  //   var result = NormalizeEmail("fatcatATgmailDOTcom");
+  //   expect(result).toEqual("fatcat@gmail.com");
+  // });
 
-  it("given (AT) remove the symbols and convert to @", function(){
-    var result = ParseTextToEmail("fatcat(AT)gmailDOTcom");
-    expect(result).toEqual("fatcat@gmail.com");
+  describe("given a text with uppercase AT and/or DOT", function(){
+    it("removes the symbols and convert", function(){
+      var result = NormalizeEmail("fatcat(AT)gmailDOTcom");
+      expect(result).toEqual("fatcat@gmail.com");
 
-    var second = ParseTextToEmail("fatcat-AT%gmail-DOT-com");
-    expect(second).toEqual("fatcat@gmail.com");
+      var second = NormalizeEmail("fatcat-AT%gmail-DOT-com");
+      expect(second).toEqual("fatcat@gmail.com");
+    });
   });
 
 });

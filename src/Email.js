@@ -1,6 +1,6 @@
-function ParseTextToEmail(input) {
+function NormalizeEmail(input) {
 
-		function replaceAtwithArruba(input) {
+		function replaceUppercaseAtToAtSymbol(input) {
 		  if (input.indexOf("AT") > 0) {
 		  	var text = removeSymbols(input);
 		    return text.replace("AT","@");
@@ -10,7 +10,7 @@ function ParseTextToEmail(input) {
 		  }
 		}
 
-		function replaceDot (input) {
+		function replaceUppercaseDotToPoint (input) {
 			if (input.indexOf("DOT") > 0) {
 		    return input.replace("DOT",".");
 		  }
@@ -27,8 +27,7 @@ function ParseTextToEmail(input) {
   		return newtext.join("");
   	}
 
-	var atreplaced = replaceAtwithArruba(input);
-	return replaceDot(atreplaced);
+	var replacedText = replaceUppercaseAtToAtSymbol(input);
+	return replaceUppercaseDotToPoint(replacedText);
 
 };
-
