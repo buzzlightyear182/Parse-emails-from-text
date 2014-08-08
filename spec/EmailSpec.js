@@ -20,12 +20,12 @@ describe("ParseTextToEmail", function(){
     expect(result).toEqual("fatcat@gmail.com");
   });
 
-  it("given (AT) remove the parenthesis and convert to @", function(){
+  it("given (AT) remove the symbols and convert to @", function(){
     var result = ParseTextToEmail("fatcat(AT)gmailDOTcom");
     expect(result).toEqual("fatcat@gmail.com");
 
     var second = ParseTextToEmail("fatcat-AT%gmail-DOT-com");
-    expect(result).toEqual("fatcat@gmail.com");
+    expect(second).toEqual("fatcat@gmail.com");
   });
 
 });

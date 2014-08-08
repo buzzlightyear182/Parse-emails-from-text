@@ -17,16 +17,15 @@ function ParseTextToEmail(input) {
 		  else {
 				return input;
 		  }
-
 		}
 
-    	function removeSymbols (input) {
-    		var newtext =[];
-    		for (var i = 0; i < input.length; i++) {
-    			newtext.push(input[i].replace(/\W/, ""));
-    		};
-    		return newtext.join("");
-    	}
+  	function removeSymbols (input) {
+  		var newtext =[];
+  		for (var i = 0; i < input.length; i++) {
+  			newtext.push(input[i].replace(/\W/, ""));
+  		};
+  		return newtext.join("");
+  	}
 
 	var atreplaced = replaceAtwithArruba(input);
 	return replaceDot(atreplaced);
