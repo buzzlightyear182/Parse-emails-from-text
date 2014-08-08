@@ -15,11 +15,6 @@ describe("The emails normalizer", function(){
     expect(result).toEqual("fatcat@gmail.com");
   });
 
-  // it("given DOT, convert to .", function(){
-  //   var result = NormalizeEmail("fatcatATgmailDOTcom");
-  //   expect(result).toEqual("fatcat@gmail.com");
-  // });
-
   describe("given a text with uppercase AT and/or DOT", function(){
     it("removes the symbols and convert", function(){
       var result = NormalizeEmail("fatcat(AT)gmailDOTcom");
@@ -30,4 +25,16 @@ describe("The emails normalizer", function(){
     });
   });
 
-});
+  describe('Email normalizer interface',function(){
+
+    it ('Should return a correct email',function(){
+      $('#textbox').val("hello Jane");
+
+      $("#normalize").click();
+
+      var result = $("#result").html();
+
+      expect(result).toEqual('hello Jane');
+    });
+  })
+})
