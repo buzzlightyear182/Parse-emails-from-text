@@ -17,35 +17,47 @@
 
   <!-- include spec files here... -->
   <script type="text/javascript" src="spec/SpecHelper.js"></script>
-  
 </head>
 
 <style type="text/css">
-body {
-	font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
-	background-color: black;
-	color: white;
-}
+	body {
+		font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
+		background-color: #0D1920;
+		color: #BCD5CB;
+		margin: auto;
+		padding: 0 100px;
+	}
 
-#normalize{
-	background-color: #27ae60;
-	padding: 10px;
-	border-radius: 10px;
-	border: 0px;
-	color: white;
-}
+	#normalize{
+		background-color: #0E494F;
+		padding: 10px;
+		border-radius: 10px;
+		border: 0px;
+		color: white;
+		font-size: 14px;
+	}
 
-#result {
-	color: white;
-	background-color: #e74c3c;
-	padding: 10px;
-}
+	#normalize:hover{
+		background-color: #BCD5CB;
+		color: #0E494F;
+	}
+
+	#textbox{
+		width: 400px;
+	}
+
+	#result {
+		color: white;
+		background-color: #5D8F80;
+		padding: 10px;
+		border-radius: 10px;
+	}
 </style>
 
 <body>
   <p>Type in your text:</p>
-  <textarea id="textbox"></textarea>
-  <button id="normalize">Normalize</button></br>
+  <textarea id="textbox"></textarea></br>
+  <button id="normalize">Normalize this text!</button></br>
   <p>Here's the result:</p>
   <div id="result"></div>
 </br>
