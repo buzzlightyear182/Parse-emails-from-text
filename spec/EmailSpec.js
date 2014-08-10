@@ -20,8 +20,11 @@ describe("The emails normalizer", function(){
       var result = NormalizeEmail("fatcat(AT)gmailDOTcom");
       expect(result).toEqual("fatcat@gmail.com");
 
-      var second = NormalizeEmail("fatcat-AT%gmail-DOT-com");
-      expect(second).toEqual("fatcat@gmail.com");
+      var second = NormalizeEmail("fat-cat-AT-gmail-DOT-com");
+      expect(second).toEqual("fat-cat@gmail.com");
+
+      var third = NormalizeEmail("fat.cat-AT-gmail-DOT-com");
+      expect(third).toEqual("fat.cat@gmail.com");
     });
   });
 
